@@ -1,161 +1,316 @@
 <!DOCTYPE html>
+
 <html>
+
 <head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
   <title>Formulario de inicio de sesión</title>
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   <style>
+
     body {
+
       background-color: #000;
+
       color: #fff;
+
     }
+
     
+
     .container {
+
       max-width: 400px;
+
       background-color: #141414;
+
       padding: 40px;
+
       border-radius: 8px;
+
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+
       position: relative;
+
       margin: 100px auto;
+
     }
+
     
+
     .container:before {
+
       content: "S";
+
       position: absolute;
+
       top: -40px;
+
       left: 50%;
+
       transform: translateX(-50%);
+
       color: #00ccff;
+
       font-size: 60px;
+
       font-weight: bold;
+
       text-shadow: 0 0 10px #00ccff, 0 0 20px #00ccff, 0 0 30px #00ccff;
+
     }
+
     
+
     h3 {
+
       text-align: center;
+
       margin-bottom: 40px;
+
       font-family: Arial, sans-serif;
+
     }
+
     
+
     .form-group label {
+
       color: #fff;
+
     }
+
     
+
     .form-group input {
+
       background-color: transparent;
+
       border: none;
+
       border-bottom: 1px solid #999;
+
       border-radius: 0;
+
       outline: none;
+
       color: #fff;
+
       padding-left: 0;
+
     }
+
     
+
     .form-group input:focus {
+
       border-color: #00ccff;
+
     }
+
     
+
     .btn {
+
       background-color: #00ccff;
+
       border-color: #00ccff;
+
       color: #000;
+
       font-weight: bold;
+
     }
+
     
+
     .btn:hover {
+
       background-color: #0099cc;
+
       border-color: #0099cc;
+
     }
+
     
+
     .carousel-item {
+
       min-height: 300px;
+
       border-radius: 8px;
+
       overflow: hidden;
+
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+
       opacity: 0;
+
       transition: opacity 0.5s ease-in-out;
+
     }
+
     
+
     .carousel-item.active {
+
       opacity: 1;
+
     }
+
     
+
     .carousel-control-prev,
+
     .carousel-control-next {
+
       display: none;
+
     }
+
     
+
     .carousel-indicators {
+
       display: none;
+
     }
+
   </style>
+
   <script>
+
     function validateForm() {
+
       var email = document.getElementById("email").value;
+
       var password = document.getElementById("password").value;
 
       if (email === "serlismund@gmail.com" && password === "SerLis2023") {
+
         window.location.href = "https://zuheserlis31.github.io/serlis3/";
+
         return true;
+
       } else {
+
         Swal.fire({
+
           icon: 'error',
+
           title: 'Credenciales incorrectas',
+
           text: 'El correo o la contraseña son incorrectos. Por favor, intenta nuevamente.',
+
           showConfirmButton: false,
+
           timer: 2000
+
         });
+
         return false;
+
       }
+
     }
+
   </script>
+
 </head>
+
 <body>
+
   <div class="container">
+
     <h3>Iniciar sesión</h3>
+
     <form method="POST" action="" onsubmit="return validateForm()">
+
       <div class="form-group">
+
         <label for="email">Correo electrónico:</label>
+
         <input type="email" class="form-control" id="email" name="email" required>
+
       </div>
+
       <div class="form-group">
+
         <label for="password">Contraseña:</label>
+
         <input type="password" class="form-control" id="password" name="password" required>
+
       </div>
+
       <button type="submit" class="btn btn-primary btn-block">Iniciar sesión</button>
+
     </form>
+
+    <p style="text-align: center; margin-top: 20px;">¿No tienes una cuenta? <a href="#">Crear cuenta</a></p>
+
   </div>
 
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="5000" style="margin-top: 20px;">
+
     <div class="carousel-inner">
+
       <div class="carousel-item active">
+
         <img class="d-block w-100" src="https://www.themoviedb.org/t/p/original/6l1SV3CWkbbe0DcAK1lyOG8aZ4K.jpg" alt="First slide">
+
       </div>
+
       <div class="carousel-item">
+
         <img class="d-block w-100" src="https://www.canva.com/design/DAFXg7DihuY/vBOXhUDbm2Zz6sm3z0f0mA/view?utm_content=DAFXg7DihuY&utm_campaign=designshare&utm_medium=link&utm_source=viewer" alt="Second slide">
+
       </div>
+
       <div class="carousel-item">
+
         <img class="d-block w-100" src="https://www.themoviedb.org/t/p/original/iJQIbOPm81fPEGKt5BPuZmfnA54.jpg" alt="Third slide">
+
       </div>
+
     </div>
+
   </div>
 
   <script>
+
     $(document).ready(function() {
+
       $('#carouselExampleIndicators').carousel();
 
       $('#carouselExampleIndicators').on('slide.bs.carousel', function () {
+
         $('.carousel-item.active').animate({opacity: 0}, 500);
+
       });
 
       $('#carouselExampleIndicators').on('slid.bs.carousel', function () {
+
         $('.carousel-item.active').animate({opacity: 1}, 500);
+
       });
+
     });
+
   </script>
+
 </body>
+
 </html>
+
